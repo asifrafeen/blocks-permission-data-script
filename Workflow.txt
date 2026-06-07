@@ -1,0 +1,13 @@
+# Step 1 — backup everything first
+# If already backup is created skip
+./backup-permissions.sh
+
+# OS
+# Step 2 — seed all databases
+./seed-permissions-all.sh --config configs/blocks-os.conf
+
+# To target a single DB only (override)
+./seed-permissions.sh --config configs/blocks-os.conf --database BlocksRootDb
+
+#IAM
+./seed-permissions-all.sh --config configs/blocks-iam.conf

@@ -1,0 +1,12 @@
+# Secrets / local config
+.env
+*.local
+
+# Backups produced by backup-permissions.sh
+backups/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
