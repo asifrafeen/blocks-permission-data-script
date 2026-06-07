@@ -2,6 +2,15 @@
 
 set -e
 
+# Load .env (if present) from the script's directory so MONGO_URI etc. are set
+_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -f "$_SCRIPT_DIR/.env" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$_SCRIPT_DIR/.env"
+  set +a
+fi
+
 # =============================================================================
 #  seed-permissions.sh
 #

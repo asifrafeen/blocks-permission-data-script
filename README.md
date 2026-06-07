@@ -12,13 +12,22 @@ seeded idempotently (existing resources are skipped).
 ## Configuration
 
 The MongoDB connection string is read from the `MONGO_URI` environment variable.
-**No credentials are stored in this repo** — export your own before running:
+**No credentials are stored in this repo.** Copy the example env file and fill in
+your real URI — `.env` is gitignored and loaded automatically by every script:
+
+```bash
+cp .env.example .env
+# edit .env and set MONGO_URI
+```
+
+Alternatively, export it inline:
 
 ```bash
 export MONGO_URI="mongodb://user:pass@host:27017/?authSource=admin"
 ```
 
-If `MONGO_URI` is unset the scripts fall back to a non-functional placeholder.
+If `MONGO_URI` is unset (no `.env`, no export) the scripts fall back to a
+non-functional placeholder.
 
 Each service has a config file under [`configs/`](configs/) describing its
 endpoints. To add a new service, copy the template:
